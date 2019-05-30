@@ -38,6 +38,7 @@ var app1=new Vue({
         fullname:'123456'
     },
     watch: {
+        // 改变app1.name 就会触发事件 ，但是没计算属性更好。
         name:function(val){
             this.fullname=val+' '+this.ful;
         },
