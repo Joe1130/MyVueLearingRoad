@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<p>计算模板
+
+</p>
+<div id="example">
+    <p>Original message:"{{message}}"</p>
+    <p>Computed reversed message:"{{reversedMessage}}"</p>
+</div>
+<div id="app1">
+<p>{{fullname}}</p>
+</div>
+<script>
+var vm =new Vue({
+    el:'#example',
+    data:{
+        message:'Hello'
+    },
+    computed:{
+        reversedMessage:function(){
+            return this.message.split('').reverse().join('')
+        }
+    }
+});
+var app1=new Vue({
+    el:'#app1',
+    data:{
+        name:'123',
+        ful:'456',
+        fullname:'123456'
+    },
+    watch: {
+        name:function(val){
+            this.fullname=val+' '+this.ful;
+        },
+        ful:function(val){
+            this.fullname=this.name+' '+val;
+        }
+    },
+});
+</script>
+</body>
+</html>
